@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"log"
+	"os"
 
-	"github.com/franela/goreq"
+	"net/http"
 )
 
 func main() {
@@ -16,15 +19,16 @@ func main() {
 
 	// fmt.Println(len(output), output)
 
-	res, err := goreq.Request{
-		Uri: "http://google.com",
-	}.Do()
-
+	res, err := http.Get("https://google.com.ng")
 	if err != nil {
 		fmt.Println("Err: ", err)
+		return
 	}
 
-	fmt.Println(res.Body.ToString())
+	defer res.Body.Close()
 	fmt.Println(res.StatusCode)
-
+	_, err = io.Copy(os.Stdout, res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
