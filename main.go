@@ -19,7 +19,7 @@ func main() {
 
 	// fmt.Println(len(output), output)
 
-	res, err := http.Get("https://google.com.ng")
+	res, err := http.Get("http://127.0.0.1/hello")
 	if err != nil {
 		fmt.Println("Err: ", err)
 		return
