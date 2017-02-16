@@ -13,6 +13,6 @@ func main() {
 		return
 	}
 
-	fmt.Println(string(output))
+	fmt.Println(len(output), output)
 
 }
