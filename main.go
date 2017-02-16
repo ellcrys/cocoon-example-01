@@ -7,7 +7,7 @@ import (
 
 func main() {
 	fmt.Println("Hello Friend")
-	output, err := exec.Command("/bin/sh", "-c", "'ls'").Output()
+	output, err := exec.Command("/bin/sh", "-c", "'curl https://google.com'").Output()
 	if err != nil {
 		fmt.Println("Err:", err, string(output))
 		return
