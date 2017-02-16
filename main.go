@@ -7,7 +7,7 @@ import (
 
 func main() {
 	fmt.Println("Hello Friend")
-	output, err := exec.Command("wget", `http://google.com`).Output()
+	output, err := exec.Command("wget", `http://www.nairaland.com/`).Output()
 	if err != nil {
 		fmt.Println("Err:", err, string(output))
 		return
