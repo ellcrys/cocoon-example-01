@@ -7,7 +7,7 @@ import (
 
 func main() {
 	fmt.Println("Hello Friend")
-	output, err := exec.Command("wget", `http://127.0.0.1:3000`).Output()
+	output, err := exec.Command("wget", `http://google.com`).Output()
 	if err != nil {
 		fmt.Println("Err:", err, string(output))
 		return
