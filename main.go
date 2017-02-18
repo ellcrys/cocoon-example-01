@@ -17,7 +17,7 @@ func main() {
 
 	// fmt.Println(len(output), string(output))
 
-	res, err := http.Get("https://google.com.ng")
+	res, err := http.Get("http://localhost:8500/v1/catalog/services")
 	if err != nil {
 		fmt.Println("Err: ", err)
 		return
