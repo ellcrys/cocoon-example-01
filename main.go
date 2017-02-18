@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	output, err := exec.Command("iptables").Output()
+	output, err := exec.Command("bash", "-c", "iptables -S").Output()
 	if err != nil {
 		fmt.Println("Err:", err, string(output))
 		return
