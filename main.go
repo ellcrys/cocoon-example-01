@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"io"
-	"log"
-	"net/http"
-	"os"
+	"time"
 )
 
 func main() {
+	fmt.Println("Hello Friend")
+	time.Sleep(20)
 	// output, err := exec.Command("bash", "-c", "iptables -S").Output()
 	// if err != nil {
 	// 	fmt.Println("Err:", err, string(output))
@@ -17,16 +16,16 @@ func main() {
 
 	// fmt.Println(len(output), string(output))
 
-	res, err := http.Get("http://localhost:8500/v1/catalog/services")
-	if err != nil {
-		fmt.Println("Err: ", err)
-		return
-	}
+	// res, err := http.Get("http://localhost:8500/v1/catalog/services")
+	// if err != nil {
+	// 	fmt.Println("Err: ", err)
+	// 	return
+	// }
 
-	defer res.Body.Close()
-	fmt.Println(res.StatusCode)
-	_, err = io.Copy(os.Stdout, res.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
+	// defer res.Body.Close()
+	// fmt.Println(res.StatusCode)
+	// _, err = io.Copy(os.Stdout, res.Body)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 }
