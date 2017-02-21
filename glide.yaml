@@ -1,2 +1,5 @@
 package: github.com/ncodes/cocoon-example-01
 import:
+- package: github.com/ncodes/cocoon
+  subpackages:
+  - core/stubs/golang
