@@ -10,7 +10,6 @@ func main() {
 
 	stub.StartServer(func() {
 		fmt.Println("Hello Friend")
-		stub.Stop()
 	})
 
 	// output, err := exec.Command("bash", "-c", "iptables -S").Output()
