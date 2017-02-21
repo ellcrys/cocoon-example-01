@@ -2,12 +2,17 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	stub "github.com/ncodes/cocoon/core/stubs/golang"
 )
 
 func main() {
-	fmt.Println("Hello Friend")
-	time.Sleep(20)
+
+	stub.StartServer(func() {
+		fmt.Println("Hello Friend")
+		stub.Stop()
+	})
+
 	// output, err := exec.Command("bash", "-c", "iptables -S").Output()
 	// if err != nil {
 	// 	fmt.Println("Err:", err, string(output))

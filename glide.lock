@@ -1,0 +1,46 @@
+hash: cea2a9f3d23324f5c45011b29ea209f14c628850299d0d363899a51c9082c8a4
+updated: 2017-02-21T10:43:41.106421754+01:00
+imports:
+- name: github.com/golang/protobuf
+  version: 8ee79997227bf9b34611aee7946ae64735e6fd93
+  subpackages:
+  - proto
+- name: github.com/ncodes/cocoon
+  version: d884d8b71865fc22f8d0bb248b8ead608ba8663d
+  subpackages:
+  - core/stubs/golang
+  - core/stubs/golang/config
+  - core/stubs/golang/proto
+- name: github.com/op/go-logging
+  version: b2cb9fa56473e98db8caba80237377e83fe44db5
+- name: golang.org/x/net
+  version: ae05321a78c1401cec22ba7bc203b597ea372496
+  subpackages:
+  - context
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - lex/httplex
+  - trace
+- name: golang.org/x/text
+  version: 44f4f658a783b0cee41fe0a23b8fc91d9c120558
+  subpackages:
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
+- name: google.golang.org/grpc
+  version: 708a7f9f3283aa2d4f6132d287d78683babe55c8
+  subpackages:
+  - codes
+  - credentials
+  - grpclog
+  - internal
+  - metadata
+  - naming
+  - peer
+  - stats
+  - tap
+  - transport
+testImports: []
