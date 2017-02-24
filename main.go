@@ -14,7 +14,7 @@ func main() {
 
 	stub.StartServer(func() {
 		fmt.Println("Hello Friend")
-		res, err := http.Get("http://google.com")
+		res, err := http.Get("https://google.com.ng")
 		if err != nil {
 			fmt.Println("Err: ", err)
 			return
