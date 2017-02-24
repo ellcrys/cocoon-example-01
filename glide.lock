@@ -1,12 +1,12 @@
 hash: 7b77227bf87d9348b72c9363fde34d009c6f0df17d33bf67393d4cfc9221f3f3
-updated: 2017-02-21T11:55:36.559657268+01:00
+updated: 2017-02-24T13:18:52.527475084+01:00
 imports:
 - name: github.com/golang/protobuf
   version: 8ee79997227bf9b34611aee7946ae64735e6fd93
   subpackages:
   - proto
 - name: github.com/ncodes/cocoon
-  version: d884d8b71865fc22f8d0bb248b8ead608ba8663d
+  version: ea7bd725df24c71dc0bab6a656d8050cdfcef6b1
   subpackages:
   - core/stubs/golang
   - core/stubs/golang/config
