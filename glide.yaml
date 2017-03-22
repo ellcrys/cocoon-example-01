@@ -1,9 +1,9 @@
 package: github.com/ncodes/cocoon-example-01
 import:
-- package: github.com/ncodes/cocoon
-  subpackages:
-  - core/stubs/golang
 - package: google.golang.org/grpc
 - package: golang.org/x/net
 - package: github.com/golang/protobuf
 - package: github.com/op/go-logging
+- package: github.com/ncodes/cocoon
+  subpackages:
+  - core/runtime/golang

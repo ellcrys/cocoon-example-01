@@ -1,32 +1,42 @@
 package main
 
-import (
-	"fmt"
-	"io"
-	"log"
-	"net/http"
-	"os"
+import runtime "github.com/ncodes/cocoon/core/runtime/golang"
 
-	stub "github.com/ncodes/cocoon/core/stubs/golang"
-)
+var log = runtime.GetLogger()
+
+// App is an example cocoon code
+type App struct {
+}
+
+// OnInit method initializes the app
+func (app *App) OnInit(link *runtime.Link) error {
+	log.Info("App is initializing!")
+	return nil
+}
+
+// OnInvoke process invoke transactions
+func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []string) (interface{}, error) {
+	log.Info("Invoked")
+	return nil, nil
+}
 
 func main() {
 
-	stub.StartServer(func() {
-		fmt.Println("Hello Friend")
-		res, err := http.Get("https://google.com.ng")
-		if err != nil {
-			fmt.Println("Err: ", err)
-			return
-		}
+	runtime.Run(new(App))
 
-		defer res.Body.Close()
-		fmt.Println(res.StatusCode)
-		_, err = io.Copy(os.Stdout, res.Body)
-		if err != nil {
-			log.Fatal(err)
-		}
-	})
+	// fmt.Println("Hello Friend")
+	// res, err := http.Get("https://google.com.ng")
+	// if err != nil {
+	// 	fmt.Println("Err: ", err)
+	// 	return
+	// }
+
+	// defer res.Body.Close()
+	// fmt.Println(res.StatusCode)
+	// _, err = io.Copy(os.Stdout, res.Body)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
 	// output, err := exec.Command("bash", "-c", "iptables -S").Output()
 	// if err != nil {
