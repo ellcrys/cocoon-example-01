@@ -11,6 +11,8 @@ type App struct {
 // OnInit method initializes the app
 func (app *App) OnInit(link *runtime.Link) error {
 	log.Info("App is initializing!")
+	log.Info("GetCocoonID(): ", runtime.GetCocoonID())
+	log.Info("GetID(): ", runtime.GetID())
 	return nil
 }
 
