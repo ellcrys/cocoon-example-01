@@ -28,7 +28,7 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: c17834dcf5865aafe6c38b5999b904b4bdb130fc
+  version: e8f196197fe938b043b31aef5e767a3391a3d35c
   subpackages:
   - core/common
   - core/runtime/golang
