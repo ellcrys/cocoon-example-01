@@ -25,6 +25,7 @@ func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []str
 func main() {
 
 	runtime.Run(new(App))
+	log.Info("Cocoon Code Stopped")
 
 	// fmt.Println("Hello Friend")
 	// res, err := http.Get("https://google.com.ng")
