@@ -1,5 +1,5 @@
 hash: a54498361a2ab8f209c489bb8a1c245ec8b8baef5f7229d4161e2dc5dd92c50e
-updated: 2017-03-26T12:07:07.565660378+01:00
+updated: 2017-03-26T12:36:33.621897743+01:00
 imports:
 - name: github.com/cbroglie/mustache
   version: 6857e4b493bdb8d4b1931446eb41704aeb4c28cb
@@ -39,7 +39,7 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: 527fa6e7a0e3119ae4c9339874791ae000701f51
+  version: e076748d085d1e99fddcdb59a4bfe190559d4113
   subpackages:
   - core/common
   - core/runtime/golang
