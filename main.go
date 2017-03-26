@@ -52,7 +52,7 @@ func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []str
 		util.Printify(tx)
 	}
 
-	return nil, nil
+	return "success", nil
 }
 
 func main() {
