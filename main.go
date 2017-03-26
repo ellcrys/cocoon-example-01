@@ -52,6 +52,17 @@ func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []str
 		util.Printify(tx)
 	}
 
+	if function == "link-get" {
+		link2 := runtime.NewLink("96930eae-e374-495d-ac7a-5b97f6dd7283")
+		tx, err := link2.GetFrom("account", "ken")
+		if err != nil {
+			log.Info("Failed to GetFrom()", err)
+			return nil, err
+		}
+
+		util.Printify(tx)
+	}
+
 	return "success", nil
 }
 
