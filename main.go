@@ -28,7 +28,7 @@ func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []str
 	log.Info("LinkedTo: ", runtime.GetID())
 
 	if function == "stop" {
-		runtime.Stop(1)
+		runtime.Stop(0)
 		return nil, fmt.Errorf("an error is returned")
 	}
 
