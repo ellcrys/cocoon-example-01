@@ -1,10 +1,10 @@
 hash: a54498361a2ab8f209c489bb8a1c245ec8b8baef5f7229d4161e2dc5dd92c50e
-updated: 2017-03-25T15:11:58.399231651+01:00
+updated: 2017-03-26T12:07:07.565660378+01:00
 imports:
 - name: github.com/cbroglie/mustache
   version: 6857e4b493bdb8d4b1931446eb41704aeb4c28cb
 - name: github.com/dgrijalva/jwt-go
-  version: d2709f9f1f31ebcda9651b03077758c1f3a0018c
+  version: 9fe8afe96d32468fba230b8b22acea86251f0506
 - name: github.com/ellcrys/crypto
   version: 0a4b0be14cff5c4fae8174303e203d25425b5016
 - name: github.com/ellcrys/util
@@ -21,6 +21,17 @@ imports:
   version: 8bb4a2e4339f55b15164907177e96e9faf885504
 - name: github.com/hokaccha/go-prettyjson
   version: e6b9231a2b1cc5798b336fdbf99c16cd8ad1e0c9
+- name: github.com/jinzhu/gorm
+  version: 5174cc5c242a728b435ea2be8a2f7f998e15429b
+  subpackages:
+  - dialects/postgres
+- name: github.com/jinzhu/inflection
+  version: 1c35d901db3da928c72a72d8458480cc9ade058f
+- name: github.com/lib/pq
+  version: 2704adc878c21e1329f46f6e56a1c387d788ff94
+  subpackages:
+  - hstore
+  - oid
 - name: github.com/mattn/go-colorable
   version: 5411d3eea5978e6cdc258b30de592b60df6aba96
   repo: https://github.com/mattn/go-colorable
@@ -28,12 +39,13 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: adfecce9d43298397fc5fb3509e9477500bcba4c
+  version: 527fa6e7a0e3119ae4c9339874791ae000701f51
   subpackages:
   - core/common
   - core/runtime/golang
   - core/runtime/golang/config
   - core/runtime/golang/proto
+  - core/store/impl
   - core/types
 - name: github.com/ncodes/cocoon-util
   version: 690b1d8425298b1fecd83ed0ade30a6e52a91397
@@ -67,7 +79,7 @@ imports:
   - lex/httplex
   - trace
 - name: golang.org/x/sys
-  version: 8fd966b47dbdd4faa03de0d06e3d733baeb9a1a9
+  version: afadfcc7779c1f4db0f6f6438afcb108d9c9c7cd
   subpackages:
   - unix
 - name: golang.org/x/text
