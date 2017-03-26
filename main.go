@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/ellcrys/util"
 	runtime "github.com/ncodes/cocoon/core/runtime/golang"
 )
@@ -24,6 +26,10 @@ func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []str
 
 	log.Info("ID: ", runtime.GetCocoonID())
 	log.Info("LinkedTo: ", runtime.GetID())
+
+	if function == "error" {
+		return nil, fmt.Errorf("an error is returned")
+	}
 
 	if function == "create_put" {
 
