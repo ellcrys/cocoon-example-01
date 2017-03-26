@@ -27,7 +27,8 @@ func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []str
 	log.Info("ID: ", runtime.GetCocoonID())
 	log.Info("LinkedTo: ", runtime.GetID())
 
-	if function == "error" {
+	if function == "stop" {
+		runtime.Stop(1)
 		return nil, fmt.Errorf("an error is returned")
 	}
 
