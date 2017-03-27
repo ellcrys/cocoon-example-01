@@ -1,11 +1,6 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/ellcrys/util"
-	runtime "github.com/ncodes/cocoon/core/runtime/golang"
-)
+import runtime "github.com/ncodes/cocoon/core/runtime/golang"
 
 var log = runtime.GetLogger()
 
@@ -23,58 +18,12 @@ func (app *App) OnInit(link *runtime.Link) error {
 
 // OnInvoke process invoke transactions
 func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []string) (interface{}, error) {
-
 	log.Info("ID: ", runtime.GetCocoonID())
 	log.Info("LinkedTo: ", runtime.GetID())
-
-	if function == "stop" {
-		runtime.Stop(0)
-		return nil, fmt.Errorf("an error is returned")
-	}
-
-	if function == "create_put" {
-
-		_, err := link.CreateLedger("account", false, false)
-		if err != nil {
-			log.Info("Failed to create ledger: %s", err)
-			return nil, err
-		}
-
-		tx, err := link.PutIn("account", "ken", []byte("10.30"))
-		if err != nil {
-			log.Info("Failed to Put()", err)
-			return nil, err
-		}
-
-		util.Printify(tx)
-	}
-
-	if function == "get" {
-		tx, err := link.GetFrom("account", "ken")
-		if err != nil {
-			log.Info("Failed to GetFrom()", err)
-			return nil, err
-		}
-
-		util.Printify(tx)
-	}
-
-	if function == "link-get" {
-		link2 := runtime.NewLink("96930eae-e374-495d-ac7a-5b97f6dd7283")
-		tx, err := link2.GetFrom("account", "ken")
-		if err != nil {
-			log.Info("Failed to GetFrom()", err)
-			return nil, err
-		}
-
-		util.Printify(tx)
-	}
-
 	return "success", nil
 }
 
 func main() {
-
 	runtime.Run(new(App))
 
 	// fmt.Println("Hello Friend")
