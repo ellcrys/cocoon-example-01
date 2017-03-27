@@ -1,10 +1,10 @@
 hash: a54498361a2ab8f209c489bb8a1c245ec8b8baef5f7229d4161e2dc5dd92c50e
-updated: 2017-03-26T21:53:47.972529417+01:00
+updated: 2017-03-27T12:08:42.913724706+01:00
 imports:
 - name: github.com/cbroglie/mustache
   version: 6857e4b493bdb8d4b1931446eb41704aeb4c28cb
 - name: github.com/dgrijalva/jwt-go
-  version: 9fe8afe96d32468fba230b8b22acea86251f0506
+  version: d2709f9f1f31ebcda9651b03077758c1f3a0018c
 - name: github.com/ellcrys/crypto
   version: 0a4b0be14cff5c4fae8174303e203d25425b5016
 - name: github.com/ellcrys/util
@@ -39,7 +39,7 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: 6fd5a072a45917503c381b500c7c63fc4c7c0cc2
+  version: 568dfe48198f37c0a7c75fd751be6819daebb0d5
   subpackages:
   - core/common
   - core/runtime/golang
