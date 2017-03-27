@@ -1,6 +1,7 @@
 package main
 
 import runtime "github.com/ncodes/cocoon/core/runtime/golang"
+import "os"
 
 var log = runtime.GetLogger()
 
@@ -10,6 +11,7 @@ type App struct {
 
 // OnInit method initializes the app
 func (app *App) OnInit(link *runtime.Link) error {
+	log.Info("Connector addrss: ", os.Getenv("CONNECTOR_ADDR"))
 	log.Info("App is initializing!")
 	log.Info("Cocoon ID: ", runtime.GetCocoonID())
 	log.Info("Linked To: ", runtime.GetID())
