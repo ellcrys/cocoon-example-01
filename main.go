@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/ellcrys/util"
 	runtime "github.com/ncodes/cocoon/core/runtime/golang"
 )
@@ -16,28 +14,45 @@ type App struct {
 // OnInit method initializes the app
 func (app *App) OnInit(link *runtime.Link) error {
 	log.Info("App is initializing!")
-
-	ln := util.RandString(5)
-	log.Info("Ledger: ", ln)
-	link.CreateLedger(ln, true, false)
-	link.PutIn(ln, "account.ken", []byte("10.29"))
-	link.PutIn(ln, "account.ben", []byte("3.11"))
-	link.PutIn(ln, "account.zen", []byte("4.33"))
-	rg := link.NewRangeGetterFrom(ln, "account", "account.z", true)
-	for rg.HasNext() {
-		util.Printify(rg.Next())
-	}
-
-	// log.Info("Connector addrss: ", os.Getenv("CONNECTOR_RPC_ADDR"))
-	// log.Info("Cocoon ID: ", runtime.GetCocoonID())
-	// log.Info("Linked To: ", runtime.GetID())
 	return nil
 }
 
 // OnInvoke process invoke transactions
 func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []string) (interface{}, error) {
-	log.Info("ID: ", txID, function, params)
-	return "success", fmt.Errorf("Something happened")
+
+	if function == "create" {
+		ledger, err := link.CreateLedger("ledger1", true, false)
+		if err != nil {
+			return nil, err
+		}
+		util.Printify(ledger)
+	}
+
+	if function == "get-ledger" {
+		ledger, err := link.GetLedger("ledger1")
+		if err != nil {
+			return nil, err
+		}
+		util.Printify(ledger)
+	}
+
+	if function == "put" {
+		tx, err := link.PutIn("ledger1", "account", []byte("240.50"))
+		if err != nil {
+			return nil, err
+		}
+		util.Printify(tx)
+	}
+
+	if function == "get" {
+		tx, err := link.GetFrom("ledger1", "account")
+		if err != nil {
+			return nil, err
+		}
+		util.Printify(tx)
+	}
+
+	return "success", nil
 }
 
 func main() {
