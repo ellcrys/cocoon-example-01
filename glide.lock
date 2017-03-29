@@ -1,5 +1,5 @@
-hash: a4d0540b0d1e1d3bbe2cfb69e8ced8d4537d5f188354dc9bc67fcb26d3c350c8
-updated: 2017-03-29T09:40:42.304481619+01:00
+hash: ab7bdeee57c4cfb8ff0dadb6586aaccf07e991e62eaa63b2c2c985df7d2c30a8
+updated: 2017-03-29T10:58:14.225802646+01:00
 imports:
 - name: github.com/cbroglie/mustache
   version: 6857e4b493bdb8d4b1931446eb41704aeb4c28cb
@@ -39,9 +39,10 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: 8e842f39eb448a59283edf04e36a02760053e15d
+  version: feaf418aa6229fce3d06057b07a87e7176e0d431
   subpackages:
   - core/common
+  - core/connector/server/connector_proto
   - core/runtime/golang
   - core/runtime/golang/config
   - core/runtime/golang/proto

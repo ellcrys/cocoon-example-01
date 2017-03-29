@@ -5,6 +5,6 @@ import:
 - package: github.com/golang/protobuf
 - package: github.com/op/go-logging
 - package: github.com/ncodes/cocoon
-  version: 8e842f39eb448a59283edf04e36a02760053e15d
+  version: feaf418aa6229fce3d06057b07a87e7176e0d431
   subpackages:
   - core/runtime/golang
