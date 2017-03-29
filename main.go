@@ -1,7 +1,11 @@
 package main
 
-import runtime "github.com/ncodes/cocoon/core/runtime/golang"
-import "os"
+import (
+	"fmt"
+
+	"github.com/ellcrys/util"
+	runtime "github.com/ncodes/cocoon/core/runtime/golang"
+)
 
 var log = runtime.GetLogger()
 
@@ -11,18 +15,29 @@ type App struct {
 
 // OnInit method initializes the app
 func (app *App) OnInit(link *runtime.Link) error {
-	log.Info("Connector addrss: ", os.Getenv("CONNECTOR_ADDR"))
 	log.Info("App is initializing!")
-	log.Info("Cocoon ID: ", runtime.GetCocoonID())
-	log.Info("Linked To: ", runtime.GetID())
+
+	ln := util.RandString(5)
+	log.Info("Ledger: ", ln)
+	link.CreateLedger(ln, true, false)
+	link.PutIn(ln, "account.ken", []byte("10.29"))
+	link.PutIn(ln, "account.ben", []byte("3.11"))
+	link.PutIn(ln, "account.zen", []byte("4.33"))
+	rg := link.NewRangeGetterFrom(ln, "account", "account.z", true)
+	for rg.HasNext() {
+		util.Printify(rg.Next())
+	}
+
+	// log.Info("Connector addrss: ", os.Getenv("CONNECTOR_RPC_ADDR"))
+	// log.Info("Cocoon ID: ", runtime.GetCocoonID())
+	// log.Info("Linked To: ", runtime.GetID())
 	return nil
 }
 
 // OnInvoke process invoke transactions
 func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []string) (interface{}, error) {
-	log.Info("ID: ", runtime.GetCocoonID())
-	log.Info("LinkedTo: ", runtime.GetID())
-	return "success", nil
+	log.Info("ID: ", txID, function, params)
+	return "success", fmt.Errorf("Something happened")
 }
 
 func main() {

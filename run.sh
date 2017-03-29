@@ -1,0 +1,4 @@
+export COCOON_ID=abc1
+export COCOON_RPC_ADDR=127.0.0.1:8004
+export CONNECTOR_RPC_ADDR=192.168.43.154:8002
+go run main.go

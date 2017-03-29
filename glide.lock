@@ -1,10 +1,10 @@
-hash: a54498361a2ab8f209c489bb8a1c245ec8b8baef5f7229d4161e2dc5dd92c50e
-updated: 2017-03-27T12:08:42.913724706+01:00
+hash: a4d0540b0d1e1d3bbe2cfb69e8ced8d4537d5f188354dc9bc67fcb26d3c350c8
+updated: 2017-03-29T09:40:42.304481619+01:00
 imports:
 - name: github.com/cbroglie/mustache
   version: 6857e4b493bdb8d4b1931446eb41704aeb4c28cb
 - name: github.com/dgrijalva/jwt-go
-  version: d2709f9f1f31ebcda9651b03077758c1f3a0018c
+  version: 9fe8afe96d32468fba230b8b22acea86251f0506
 - name: github.com/ellcrys/crypto
   version: 0a4b0be14cff5c4fae8174303e203d25425b5016
 - name: github.com/ellcrys/util
@@ -39,7 +39,7 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: 568dfe48198f37c0a7c75fd751be6819daebb0d5
+  version: 8e842f39eb448a59283edf04e36a02760053e15d
   subpackages:
   - core/common
   - core/runtime/golang
@@ -54,7 +54,7 @@ imports:
 - name: github.com/op/go-logging
   version: 970db520ece77730c7e4724c61121037378659d9
 - name: github.com/orcaman/concurrent-map
-  version: 6ebc666e129e5ea0416b75f4da96a9e8de147195
+  version: 2ae17bc4c860c83513ee50feb9746f3e50d7515d
 - name: github.com/PuerkitoBio/purell
   version: b938d81255b5473c57635324295cb0fe398c7a58
 - name: github.com/PuerkitoBio/urlesc
@@ -79,7 +79,7 @@ imports:
   - lex/httplex
   - trace
 - name: golang.org/x/sys
-  version: afadfcc7779c1f4db0f6f6438afcb108d9c9c7cd
+  version: 9a7256cb28ed514b4e1e5f68959914c4c28a92e0
   subpackages:
   - unix
 - name: golang.org/x/text
