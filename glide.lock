@@ -1,6 +1,8 @@
-hash: c2280de8b86b475dfa17ad513eb293caf531382a82440566fd34017a950b6d1f
-updated: 2017-03-29T12:11:09.168964384+01:00
+hash: 45636201ff9e99ac2993901ed4eff8ed7d12924a010f5df9cefb5b87c53e1e99
+updated: 2017-04-11T14:55:54.476785055+01:00
 imports:
+- name: github.com/asaskevich/govalidator
+  version: 7b3beb6df3c42abd3509abfc3bcacc0fbfb7c877
 - name: github.com/cbroglie/mustache
   version: 6857e4b493bdb8d4b1931446eb41704aeb4c28cb
 - name: github.com/dgrijalva/jwt-go
@@ -39,7 +41,7 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: d18178623aa565861778552c2d71874b7e4557a4
+  version: 8a607ded41208a2d4e95ebdfdc0de41fcc0fb1b1
   subpackages:
   - core/common
   - core/connector/server/connector_proto
@@ -53,7 +55,7 @@ imports:
 - name: github.com/ncodes/go-spin
   version: ddabc69b6151945c05fc40e2ae3f2fc9396b77a2
 - name: github.com/op/go-logging
-  version: 970db520ece77730c7e4724c61121037378659d9
+  version: b2cb9fa56473e98db8caba80237377e83fe44db5
 - name: github.com/orcaman/concurrent-map
   version: 2ae17bc4c860c83513ee50feb9746f3e50d7515d
 - name: github.com/PuerkitoBio/purell
@@ -90,12 +92,13 @@ imports:
   - unicode/norm
   - width
 - name: google.golang.org/grpc
-  version: 34384f34de585705f1a6783a158d2ec8af29f618
+  version: cdee119ee21e61eef7093a41ba148fa83585e143
   subpackages:
   - codes
   - credentials
   - grpclog
   - internal
+  - keepalive
   - metadata
   - naming
   - peer
