@@ -1,5 +1,5 @@
-hash: 45636201ff9e99ac2993901ed4eff8ed7d12924a010f5df9cefb5b87c53e1e99
-updated: 2017-04-11T14:55:54.476785055+01:00
+hash: dac2e86033113dd0116d359f5012102dca007040f193386ca21529d01e1469d2
+updated: 2017-04-11T17:22:10.307883198+01:00
 imports:
 - name: github.com/asaskevich/govalidator
   version: 7b3beb6df3c42abd3509abfc3bcacc0fbfb7c877
@@ -23,17 +23,6 @@ imports:
   version: 8bb4a2e4339f55b15164907177e96e9faf885504
 - name: github.com/hokaccha/go-prettyjson
   version: e6b9231a2b1cc5798b336fdbf99c16cd8ad1e0c9
-- name: github.com/jinzhu/gorm
-  version: 5174cc5c242a728b435ea2be8a2f7f998e15429b
-  subpackages:
-  - dialects/postgres
-- name: github.com/jinzhu/inflection
-  version: 1c35d901db3da928c72a72d8458480cc9ade058f
-- name: github.com/lib/pq
-  version: 2704adc878c21e1329f46f6e56a1c387d788ff94
-  subpackages:
-  - hstore
-  - oid
 - name: github.com/mattn/go-colorable
   version: 5411d3eea5978e6cdc258b30de592b60df6aba96
   repo: https://github.com/mattn/go-colorable
@@ -41,14 +30,13 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: 8a607ded41208a2d4e95ebdfdc0de41fcc0fb1b1
+  version: 8477ed776ef9c4166977dbf8be09ada33b453542
   subpackages:
   - core/common
   - core/connector/server/connector_proto
   - core/runtime/golang
   - core/runtime/golang/config
   - core/runtime/golang/proto
-  - core/store/impl
   - core/types
 - name: github.com/ncodes/cocoon-util
   version: 690b1d8425298b1fecd83ed0ade30a6e52a91397
@@ -56,8 +44,6 @@ imports:
   version: ddabc69b6151945c05fc40e2ae3f2fc9396b77a2
 - name: github.com/op/go-logging
   version: b2cb9fa56473e98db8caba80237377e83fe44db5
-- name: github.com/orcaman/concurrent-map
-  version: 2ae17bc4c860c83513ee50feb9746f3e50d7515d
 - name: github.com/PuerkitoBio/purell
   version: b938d81255b5473c57635324295cb0fe398c7a58
 - name: github.com/PuerkitoBio/urlesc
@@ -92,7 +78,7 @@ imports:
   - unicode/norm
   - width
 - name: google.golang.org/grpc
-  version: cdee119ee21e61eef7093a41ba148fa83585e143
+  version: 8050b9cbc271307e5a716a9d782803d09b0d6f2d
   subpackages:
   - codes
   - credentials
