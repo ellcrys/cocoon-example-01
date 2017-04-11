@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/ellcrys/util"
 	runtime "github.com/ncodes/cocoon/core/runtime/golang"
 )
@@ -17,41 +19,16 @@ func (app *App) OnInit(link *runtime.Link) error {
 	return nil
 }
 
+func print(err error, v interface{}) {
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	util.Printify(v)
+}
+
 // OnInvoke process invoke transactions
 func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []string) (interface{}, error) {
-
-	if function == "create" {
-		ledger, err := link.CreateLedger("ledger1", true, false)
-		if err != nil {
-			return nil, err
-		}
-		util.Printify(ledger)
-	}
-
-	if function == "get-ledger" {
-		ledger, err := link.GetLedger("ledger1")
-		if err != nil {
-			return nil, err
-		}
-		util.Printify(ledger)
-	}
-
-	if function == "put" {
-		tx, err := link.PutIn("ledger1", "account", []byte("240.50"))
-		if err != nil {
-			return nil, err
-		}
-		util.Printify(tx)
-	}
-
-	if function == "get" {
-		tx, err := link.GetFrom("ledger1", "account")
-		if err != nil {
-			return nil, err
-		}
-		util.Printify(tx)
-	}
-
 	return "success", nil
 }
 

@@ -1,9 +1,9 @@
 This is an example of a cocoon code. We use this for development cocoon code. This is like a playground for
-to test various cocoon funtionalities.
+to test various cocoon functionalities.
 
 Run:
 ```sh
-env COCOON_CODE_PORT=8003 go run main.go
-```
+env COCOON_RPC_ADDR=127.0.0.1:8004 CONNECTOR_RPC_ADDR=192.168.43.154:8002 go run main.go
 
-Setting the `COCOON_CODE_PORT` forces a connector to connect to the local cocoon code as opposed to fetching, building and running a remotely hosted cocoon code.
+// Change address according to your machine configuration.
+```
