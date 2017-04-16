@@ -1,5 +1,5 @@
-hash: dac2e86033113dd0116d359f5012102dca007040f193386ca21529d01e1469d2
-updated: 2017-04-11T17:22:10.307883198+01:00
+hash: 0aef69b535eb98834c18401d02e316b67d8c404726f07675b6464ef3114c9478
+updated: 2017-04-16T09:40:28.216733449+01:00
 imports:
 - name: github.com/asaskevich/govalidator
   version: 7b3beb6df3c42abd3509abfc3bcacc0fbfb7c877
@@ -10,7 +10,7 @@ imports:
 - name: github.com/ellcrys/crypto
   version: 0a4b0be14cff5c4fae8174303e203d25425b5016
 - name: github.com/ellcrys/util
-  version: 600816bb3c9121cef88d69d9ef085392eaf9e5f6
+  version: 4f0a2d2b43350cec9c9003959779b8b24190b641
 - name: github.com/fatih/color
   version: 9131ab34cf20d2f6d83fdc67168a5430d1c7dc23
 - name: github.com/franela/goreq
@@ -30,7 +30,7 @@ imports:
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
 - name: github.com/ncodes/cocoon
-  version: 8477ed776ef9c4166977dbf8be09ada33b453542
+  version: 0ae71f596a349112f76103847880805207da135a
   subpackages:
   - core/common
   - core/connector/server/connector_proto
@@ -39,7 +39,7 @@ imports:
   - core/runtime/golang/proto
   - core/types
 - name: github.com/ncodes/cocoon-util
-  version: 690b1d8425298b1fecd83ed0ade30a6e52a91397
+  version: 69e9cd42e36dbe5a951ae60539c1a1b701167b66
 - name: github.com/ncodes/go-spin
   version: ddabc69b6151945c05fc40e2ae3f2fc9396b77a2
 - name: github.com/op/go-logging
