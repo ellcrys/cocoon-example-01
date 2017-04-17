@@ -1,0 +1,32 @@
+image: golang:1.7.5-wheezy
+
+before_script:
+  - curl https://glide.sh/get | sh
+  - glide install
+  - mkdir -p $GOPATH/src/github.com/ncodes/$CI_PROJECT_NAME
+  - mv $CI_PROJECT_DIR/* $GOPATH/src/github.com/ncodes/$CI_PROJECT_NAME
+  - cd $GOPATH/src/github.com/ncodes/$CI_PROJECT_NAME
+
+services:
+  - postgres:9.6.2
+
+variables:
+  POSTGRES_DB: cocoon
+  POSTGRES_USER: test
+  POSTGRES_PASSWORD: ""
+
+stages:
+  - unit_tests
+  
+unit_tests:
+  stage: unit
+  script:
+    - go test -v (go list ./... | grep -v /vendor/)
+
+orderer:
+  stage: orderer
+  variables:
+    ORDERER_ADDR: 127.0.0.1:8001
+    STORE_CON_STR: host=postgres user=test dbname=cocoon sslmode=disable password=
+  script:
+    - go run core/main.go orderer
