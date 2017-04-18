@@ -1,0 +1,118 @@
+syntax = "proto3";
+package proto_api;
+
+service API {
+    rpc Login(LoginRequest) returns (Response);
+    rpc CreateCocoon(CocoonPayloadRequest) returns (Response);
+    rpc UpdateCocoon(CocoonPayloadRequest) returns (Response);
+    rpc CreateRelease(CreateReleaseRequest) returns (Response);
+    rpc GetRelease(GetReleaseRequest) returns (Response);
+    rpc CreateIdentity(CreateIdentityRequest) returns (Response);
+    rpc Deploy(DeployRequest) returns (Response);
+    rpc GetCocoon(GetCocoonRequest) returns (Response);
+    rpc GetIdentity(GetIdentityRequest) returns (Response);
+    rpc StopCocoon(StopCocoonRequest) returns (Response);
+    rpc AddSignatories(AddSignatoriesRequest) returns (Response);
+    rpc AddVote(AddVoteRequest) returns (Response);
+    rpc RemoveSignatories(RemoveSignatoriesRequest) returns (Response);
+    rpc FirewallAllow(FirewallAllowRequest) returns (Response);
+    rpc GetLogs(GetLogsRequest) returns (Response);
+}
+
+message GetLogsRequest {
+    string cocoonID = 1;
+    int32 numLines = 2;
+    string source = 3;
+}
+
+message FirewallAllowRequest {
+    string cocoonID = 1;
+    string destination = 2;
+    string destinationPort = 3;
+    string protocol = 4;    
+}
+
+message FirewallRule {
+    string destination = 1;
+    string destinationPort = 2;
+    string protocol = 3;
+}
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message AddSignatoriesRequest {
+    string cocoonID = 1;
+    repeated string IDs = 2;
+}
+
+message RemoveSignatoriesRequest {
+    string cocoonID = 1;
+    repeated string IDs = 2;
+}
+
+message AddVoteRequest {
+    string releaseID = 1;
+    string vote = 2;    
+}
+
+message CocoonPayloadRequest {
+    string ID = 1;
+    string URL = 2;
+    string language = 3;
+    string version = 4;
+    string buildParam = 5;
+    repeated FirewallRule firewall = 6;
+    bytes ACL = 7;
+    string memory = 8;
+    string CPUShares = 9;
+    string link = 10;
+    int32 numSignatories = 11;
+    int32 sigThreshold = 12;
+}
+
+message GetCocoonRequest {
+    string ID = 1;
+}
+
+message GetIdentityRequest {
+    string email = 1;
+    string ID = 2;
+}
+
+message CreateReleaseRequest {
+    string ID = 1;
+    string cocoonID = 2;
+    string URL = 3;
+    string language = 4;
+    string version = 5;
+    string buildParam = 6;
+    string link = 7;
+    repeated FirewallRule firewall = 8;
+    bytes ACL = 9;
+}
+
+message GetReleaseRequest {
+    string ID = 1;
+}
+
+message DeployRequest {
+    string cocoonID = 1;
+    bool useLastDeployedRelease = 2;
+}
+
+message CreateIdentityRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message StopCocoonRequest {
+    string ID = 1;
+}
+
+message Response {
+    int32 status = 1;
+    bytes body = 2;
+}

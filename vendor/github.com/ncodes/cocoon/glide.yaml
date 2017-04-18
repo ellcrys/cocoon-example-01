@@ -33,10 +33,6 @@ import:
 - package: golang.org/x/net
   subpackages:
   - context
-- package: google.golang.org/grpc
-  version: ^1.2.0
-  subpackages:
-  - metadata
 - package: gopkg.in/oleiade/lane.v1
   version: ^1.0.0
 - package: github.com/olekukonko/tablewriter
@@ -47,6 +43,14 @@ import:
   version: 69e9cd42e36dbe5a951ae60539c1a1b701167b66
 - package: github.com/ellcrys/util
   version: 4f0a2d2b43350cec9c9003959779b8b24190b641
+- package: github.com/kr/pretty
+- package: google.golang.org/api
+  version: cbeb0ff89adddeef6a3287fa481dcca2b596ed36
+- package: github.com/hashicorp/golang-lru
+- package: google.golang.org/grpc
+  version: 0c1d39df28cc4e0369b185df2b33b1094cd543fb
+  subpackages:
+  - metadata
 testImport:
 - package: github.com/smartystreets/goconvey
   version: ^1.6.2

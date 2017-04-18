@@ -6,14 +6,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ncodes/cocoon/core/api/api/proto"
-	"github.com/ncodes/cocoon/core/orderer"
+	"os"
+
+	"github.com/ncodes/cocoon/core/api/api/proto_api"
+	"github.com/ncodes/cocoon/core/config"
+	"github.com/ncodes/cocoon/core/orderer/orderer"
 	"github.com/ncodes/cocoon/core/scheduler"
-	logging "github.com/op/go-logging"
+	"github.com/ncodes/cocoon/core/types"
 	"google.golang.org/grpc"
 )
 
-var apiLog = logging.MustGetLogger("api.rpc")
+var apiLog = config.MakeLogger("api.rpc", "api")
 
 // API defines a GRPC api for performing various
 // cocoon operations such as cocoon orchestration, resource
@@ -23,6 +26,7 @@ type API struct {
 	endedCh          chan bool
 	ordererDiscovery *orderer.Discovery
 	scheduler        scheduler.Scheduler
+	logProvider      types.LogProvider
 }
 
 // NewAPI creates a new GRPCAPI object
@@ -30,6 +34,7 @@ func NewAPI(scheduler scheduler.Scheduler) *API {
 	return &API{
 		scheduler:        scheduler,
 		ordererDiscovery: orderer.NewDiscovery(),
+		logProvider:      &StackDriverLog{},
 	}
 }
 
@@ -43,6 +48,11 @@ func (api *API) Start(addr string, endedCh chan bool) {
 		apiLog.Fatalf("failed to listen on port=%s. Err: %s", strings.Split(addr, ":")[1], err)
 	}
 
+	err = api.logProvider.Init(map[string]interface{}{"projectId": os.Getenv("GCP_PROJECT_ID")})
+	if err != nil {
+		apiLog.Fatalf("failed to initialize log provider: %v", err)
+	}
+
 	time.AfterFunc(2*time.Second, func() {
 		apiLog.Infof("Started server on port %s", strings.Split(addr, ":")[1])
 		go api.ordererDiscovery.Discover()
@@ -53,7 +63,7 @@ func (api *API) Start(addr string, endedCh chan bool) {
 	})
 
 	api.server = grpc.NewServer()
-	proto.RegisterAPIServer(api.server, api)
+	proto_api.RegisterAPIServer(api.server, api)
 	api.server.Serve(lis)
 }
 

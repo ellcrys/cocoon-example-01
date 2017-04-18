@@ -134,15 +134,22 @@ type Check struct {
 	Protocol string
 }
 
+// Logging defines logging configuration
+type Logging struct {
+	Type   string              `json:"type"`
+	Config []map[string]string `json:"config"`
+}
+
 // Config defines a driver/task configuration
 type Config struct {
-	NetworkMode string   `json:"network_mode"`
-	Privileged  bool     `json:"privileged"`
-	ForcePull   bool     `json:"force_pull"`
-	Volumes     []string `json:"volumes"`
-	Image       string   `json:"image"`
-	Command     string   `json:"command"`
-	Args        []string `json:"args"`
+	NetworkMode string    `json:"network_mode"`
+	Privileged  bool      `json:"privileged"`
+	ForcePull   bool      `json:"force_pull"`
+	Volumes     []string  `json:"volumes"`
+	Image       string    `json:"image"`
+	Command     string    `json:"command"`
+	Args        []string  `json:"args"`
+	Logging     []Logging `json:"logging"`
 }
 
 // NomadJob represents a nomad job
@@ -189,22 +196,18 @@ func NewJob(version, id string, count int) *NomadJob {
 									"/var/run/docker.sock:/var/run/docker.sock",
 								},
 								Command: "bash",
-								Args:    []string{"/local/runner.sh"},
+								Args:    []string{"/local/run-connector.sh"},
 							},
 							Env: map[string]string{
 								"VERSION":               "${NOMAD_META_VERSION}",
+								"ENV":                   "",
 								"COCOON_ID":             id,
 								"COCOON_CODE_URL":       "",
-								"COCOON_CODE_TAG":       "",
+								"COCOON_CODE_VERSION":   "",
 								"COCOON_CODE_LANG":      "",
 								"COCOON_BUILD_PARAMS":   "",
 								"COCOON_LINK":           "",
 								"COCOON_CONTAINER_NAME": "code-${NOMAD_ALLOC_ID}",
-
-								// The name of the connector runner script and a link to the script.
-								// The runner script will fetch and run whatever is found in this environment var.
-								"RUN_SCRIPT_NAME": "run-connector.sh",
-								"RUN_SCRIPT_URL":  "https://raw.githubusercontent.com/${NOMAD_META_REPO_USER}/cocoon/${NOMAD_META_VERSION}/scripts/run-connector.sh",
 							},
 							Services: []NomadService{
 								NomadService{
@@ -221,7 +224,7 @@ func NewJob(version, id string, count int) *NomadJob {
 							Templates: []Template{},
 							Artifacts: []Artifact{
 								Artifact{
-									GetterSource: "https://raw.githubusercontent.com/${NOMAD_META_REPO_USER}/cocoon/${NOMAD_META_VERSION}/scripts/runner.sh",
+									GetterSource: "https://raw.githubusercontent.com/${NOMAD_META_REPO_USER}/cocoon/master/scripts/run-connector.sh",
 									RelativeDest: "/local",
 								},
 							},
@@ -304,4 +307,9 @@ func NewJob(version, id string, count int) *NomadJob {
 // GetSpec returns the job's specification
 func (j *NomadJob) GetSpec() *Job {
 	return j.Job
+}
+
+//SetVersion set the connectors version
+func (j *NomadJob) SetVersion(v string) {
+	j.GetSpec().TaskGroups[0].Meta["VERSION"] = v
 }

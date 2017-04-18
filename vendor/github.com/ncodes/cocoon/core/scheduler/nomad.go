@@ -4,14 +4,16 @@ import (
 	"fmt"
 	"strconv"
 
+	"os"
+
 	"github.com/ellcrys/crypto"
 	"github.com/ellcrys/util"
 	"github.com/franela/goreq"
 	"github.com/ncodes/cocoon/core/common"
-	logging "github.com/op/go-logging"
+	"github.com/ncodes/cocoon/core/config"
 )
 
-var log = logging.MustGetLogger("nomad")
+var log = config.MakeLogger("nomad", "nomad")
 
 // SupportedCocoonCodeLang defines the supported chaincode language
 var SupportedCocoonCodeLang = []string{"go"}
@@ -112,14 +114,31 @@ func (sc *Nomad) Deploy(jobID, lang, url, version, buildParams, linkID, memory, 
 	job := NewJob("master", jobID, 1)
 	job.GetSpec().Region = "global"
 	job.GetSpec().Datacenters = []string{"dc1"}
+	job.GetSpec().TaskGroups[0].Tasks[0].Env["ENV"] = os.Getenv("ENV")
 	job.GetSpec().TaskGroups[0].Tasks[0].Env["COCOON_CODE_URL"] = url
-	job.GetSpec().TaskGroups[0].Tasks[0].Env["COCOON_CODE_TAG"] = version
+	job.GetSpec().TaskGroups[0].Tasks[0].Env["COCOON_CODE_VERSION"] = version
 	job.GetSpec().TaskGroups[0].Tasks[0].Env["COCOON_CODE_LANG"] = lang
 	job.GetSpec().TaskGroups[0].Tasks[0].Env["COCOON_BUILD_PARAMS"] = buildParams
 	job.GetSpec().TaskGroups[0].Tasks[0].Env["COCOON_DISK_LIMIT"] = strconv.Itoa(SupportedDiskSpace[cpuShare])
 
+	// set fluentd logger in production environment
+	if os.Getenv("ENV") == "production" {
+		job.SetVersion("1.0.0")
+		job.GetSpec().TaskGroups[0].Tasks[0].Config.Logging = []Logging{
+			{
+				Type: "fluentd",
+				Config: []map[string]string{
+					{
+						"fluentd-address": "localhost:24224",
+						"tag":             fmt.Sprintf("cocoon-%s", jobID),
+					},
+				},
+			},
+		}
+	}
+
 	// if cocoon linkID is provided, set env variable and also add id to
-	// the service tag. This will allow us use discover the link via consul service discovery.
+	// the service tag. This will allow us to discover the link via consul service discovery.
 	// Tag format is `link_to:the_id`
 	if len(linkID) > 0 {
 		job.GetSpec().TaskGroups[0].Tasks[0].Env["COCOON_LINK"] = linkID
