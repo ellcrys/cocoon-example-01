@@ -34,8 +34,8 @@ func print(err error, v interface{}) {
 // OnInvoke process invoke transactions
 func (app *App) OnInvoke(header runtime.Metadata, function string, params []string) ([]byte, error) {
 
-	fmt.Println("Function: ", function)
-	fmt.Println("Params: ", params)
+	fmt.Println("Found Function: ", function)
+	fmt.Println("Found Params: ", params)
 	pretty.Println(header)
 
 	// link.NewLedger("myledger2", true, true)
