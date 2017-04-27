@@ -16,7 +16,7 @@ type App struct {
 }
 
 // OnInit method initializes the app
-func (app *App) OnInit(link *runtime.Link) error {
+func (app *App) OnInit() error {
 	log.Info("App is initializing now now")
 	log.Infof("Version: %s", os.Getenv("COCOON_CODE_VERSION"))
 	return nil
@@ -31,11 +31,14 @@ func print(err error, v interface{}) {
 }
 
 // OnInvoke process invoke transactions
-func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []string) (interface{}, error) {
+func (app *App) OnInvoke(header runtime.Metadata, function string, params []string) ([]byte, error) {
+
+	fmt.Println("Function: ", function)
+	fmt.Println("Params: ", params)
+	util.Printify(header)
+
 	// link.NewLedger("myledger2", true, true)
-
-	log.Infof("Hello, I am %s", runtime.GetCocoonID())
-
+	// log.Infof("Hello, I am %s", runtime.GetCocoonID())
 	// tx, err := link.Put("myledger2", "account.balance", []byte("10.20"))
 	// if err != nil {
 	// 	log.Info("failed to create transaction = ", err)
@@ -52,11 +55,21 @@ func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []str
 	// 	}()
 	// }
 
+	// start := time.Now()
 	// l2 := runtime.NewLink("u1")
-
-	// lock, err := l2.Lock("some_key", 10*time.Second)
+	// lock, err := l2.Lock("some_key", 2*time.Second)
 	// print(err, lock)
-	// err = lock.IsAcquirer()
+	// err = lock.Acquire()
+	// print(err, nil)
+	// fmt.Println(time.Since(start))
+
+	// start = time.Now()
+	// lock2, err := l2.Lock("some_key", 10*time.Second)
+	// fmt.Println(time.Since(start))
+	// print(err, lock2)
+	// err = lock2.Acquire()
+	// print(err, nil)
+
 	// print(err, nil)
 	// err = lock.Release()
 	// print(err, nil)
@@ -77,7 +90,7 @@ func (app *App) OnInvoke(link *runtime.Link, txID, function string, params []str
 	// 	print(err, tx)
 	// }()
 
-	return "success", nil
+	return []byte("success"), nil
 }
 
 func main() {
