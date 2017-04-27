@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/ellcrys/util"
+	"github.com/kr/pretty"
 	runtime "github.com/ncodes/cocoon/core/runtime/golang"
 )
 
@@ -35,7 +36,7 @@ func (app *App) OnInvoke(header runtime.Metadata, function string, params []stri
 
 	fmt.Println("Function: ", function)
 	fmt.Println("Params: ", params)
-	util.Printify(header)
+	pretty.Println(header)
 
 	// link.NewLedger("myledger2", true, true)
 	// log.Infof("Hello, I am %s", runtime.GetCocoonID())

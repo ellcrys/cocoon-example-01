@@ -93,6 +93,12 @@
 			"revisionTime": "2017-04-16T08:21:50Z"
 		},
 		{
+			"checksumSHA1": "eOXF2PEvYLMeD8DSzLZJWbjYzco=",
+			"path": "github.com/kr/pretty",
+			"revision": "cfb55aafdaf3ec08f0db22699ab822c50091b1c4",
+			"revisionTime": "2016-08-23T17:07:15Z"
+		},
+		{
 			"checksumSHA1": "MrqRXuqj5suGXqcRUUwi+YA7PmE=",
 			"path": "github.com/mattn/go-colorable",
 			"revision": "4f0a2d2b43350cec9c9003959779b8b24190b641",
