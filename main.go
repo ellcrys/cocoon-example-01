@@ -43,6 +43,11 @@ func (app *App) OnInvoke(header runtime.Metadata, function string, params []stri
 	return []byte("success"), nil
 }
 
+// OnStop is called when the cocoon code is being stopped
+func (app *App) OnStop() {
+	log.Info("I am stopping! :(")
+}
+
 func main() {
 	runtime.Run(new(App))
 }
