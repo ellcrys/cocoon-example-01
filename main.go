@@ -34,8 +34,8 @@ func print(err error, v interface{}) {
 // OnInvoke process invoke transactions
 func (app *App) OnInvoke(header runtime.Metadata, function string, params []string) ([]byte, error) {
 
-	fmt.Println("Found Function: ", function)
-	fmt.Println("Found Params: ", params)
+	fmt.Println("Found!: ", function)
+	fmt.Println("Found Params!: ", params)
 	fmt.Println("MY_VAR", os.Getenv("MY_VAR"))
 	fmt.Println("MY_VAR2", os.Getenv("MY_VAR2"))
 	pretty.Println(header)
