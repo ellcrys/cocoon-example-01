@@ -129,10 +129,10 @@
 			"revisionTime": "2017-04-19T15:30:34Z"
 		},
 		{
-			"checksumSHA1": "+oFUdv3t0b8kCRhS8FRwUPhTy48=",
+			"checksumSHA1": "iWKvAo+8eDypb7wZhcBiocqLQWE=",
 			"path": "github.com/ncodes/cocoon/core/runtime/golang",
-			"revision": "99c0231eb4ef1ec7e82bad314b290a7d4a314e17",
-			"revisionTime": "2017-04-27T12:11:51Z"
+			"revision": "61587214723e34dd4122596c5a33c96522de44be",
+			"revisionTime": "2017-05-04T19:20:22Z"
 		},
 		{
 			"checksumSHA1": "DAnYm3mFqRNWTPgjaMfWJr+0jbE=",
