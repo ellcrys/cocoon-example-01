@@ -49,7 +49,5 @@ func (app *App) OnStop() {
 }
 
 func main() {
-	log.Info("Server started!")
 	runtime.Run(new(App))
-	log.Info("App stopped")
 }
