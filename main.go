@@ -18,7 +18,7 @@ type App struct {
 
 // OnInit method initializes the app
 func (app *App) OnInit() error {
-	log.Info("App is initializing now now")
+	log.Info("App is initializing now")
 	log.Infof("Version: %s", os.Getenv("COCOON_CODE_VERSION"))
 	return nil
 }
@@ -49,5 +49,7 @@ func (app *App) OnStop() {
 }
 
 func main() {
+	log.Info("Server started!")
 	runtime.Run(new(App))
+	log.Info("App stopped")
 }
