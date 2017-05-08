@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"os"
 
@@ -20,6 +21,9 @@ type App struct {
 func (app *App) OnInit() error {
 	log.Info("App is initializing now")
 	log.Infof("Version: %s", os.Getenv("COCOON_CODE_VERSION"))
+	time.AfterFunc(5*time.Second, func() {
+		panic("something so terrible!")
+	})
 	return nil
 }
 
