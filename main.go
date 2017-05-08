@@ -39,7 +39,8 @@ func (app *App) OnInvoke(header runtime.Metadata, function string, params []stri
 	fmt.Println("MY_VAR", os.Getenv("MY_VAR"))
 	fmt.Println("MY_VAR2", os.Getenv("MY_VAR2"))
 	pretty.Println(header)
-	panic(fmt.Errorf("something so terrible!"))
+	a := 0
+	panic(4 / a)
 
 	return []byte("success"), nil
 }
