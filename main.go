@@ -7,10 +7,10 @@ import (
 
 	"github.com/ellcrys/util"
 	"github.com/kr/pretty"
-	runtime "github.com/ncodes/cocoon/core/runtime/golang"
+	stub "github.com/ncodes/cocoon/core/stub"
 )
 
-var log = runtime.GetLogger()
+var log = stub.GetLogger()
 
 // App is an example cocoon code
 type App struct {
@@ -32,7 +32,7 @@ func print(err error, v interface{}) {
 }
 
 // OnInvoke process invoke transactions
-func (app *App) OnInvoke(header runtime.Metadata, function string, params []string) ([]byte, error) {
+func (app *App) OnInvoke(header stub.Metadata, function string, params []string) ([]byte, error) {
 
 	fmt.Println("Found: ", function)
 	fmt.Println("Found Params: ", params)
@@ -50,5 +50,5 @@ func (app *App) OnStop() {
 }
 
 func main() {
-	runtime.Run(new(App))
+	stub.Run(new(App))
 }
