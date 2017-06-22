@@ -27,6 +27,60 @@
 			"revisionTime": "2017-05-07T09:04:43Z"
 		},
 		{
+			"checksumSHA1": "FGtTjJMmUI7CC1ihUsRket4de9E=",
+			"path": "github.com/ellcrys/cocoon/core/common",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
+			"checksumSHA1": "+SQWJ0aJQTveaqZfv1Kx7ueRAuE=",
+			"path": "github.com/ellcrys/cocoon/core/common/mapdiff",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
+			"checksumSHA1": "/tX27f58u4o4rixS5sEzvctfRr4=",
+			"path": "github.com/ellcrys/cocoon/core/connector/server/proto_connector",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
+			"checksumSHA1": "D2MnVTldoZuDApx0Rl1NifkRI4o=",
+			"path": "github.com/ellcrys/cocoon/core/lock/consul",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
+			"checksumSHA1": "I9u4p1GkaDxpF/2+C8Q7Fj4ovbc=",
+			"path": "github.com/ellcrys/cocoon/core/lock/memory",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
+			"checksumSHA1": "A8il8brQ0D3nhW+8Bj8/JtL7LJ0=",
+			"path": "github.com/ellcrys/cocoon/core/stub",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
+			"checksumSHA1": "aAGUEWsFwtP2uLLc8F3iTmZ4SA0=",
+			"path": "github.com/ellcrys/cocoon/core/stub/config",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
+			"checksumSHA1": "2GIAtZaMOV7DEjVE6yXwg5ZN6Aw=",
+			"path": "github.com/ellcrys/cocoon/core/stub/proto_runtime",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
+			"checksumSHA1": "7fJalXNLgkDJypMCJft2+ZR3Nug=",
+			"path": "github.com/ellcrys/cocoon/core/types",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
+		},
+		{
 			"checksumSHA1": "cjY/zDxJSjvCElNtebzniB/SQhE=",
 			"path": "github.com/ellcrys/crypto",
 			"revision": "a7a942003b8446649dd5ee37416cb3bc914e5beb",
@@ -151,6 +205,13 @@
 			"path": "github.com/mitchellh/go-homedir",
 			"revision": "a7a942003b8446649dd5ee37416cb3bc914e5beb",
 			"revisionTime": "2017-05-07T09:04:43Z"
+		},
+		{
+			"checksumSHA1": "c1JIqjo91nD1RMFImnW69n8jtj8=",
+			"origin": "github.com/ellcrys/cocoon/vendor/github.com/mitchellh/mapstructure",
+			"path": "github.com/mitchellh/mapstructure",
+			"revision": "3a21cf059befe7e16563da65661abb81cf11735d",
+			"revisionTime": "2017-06-22T11:46:13Z"
 		},
 		{
 			"checksumSHA1": "xus/dbUuP/zem2/Gwn6MYWMEE8g=",
@@ -435,5 +496,5 @@
 			"revisionTime": "2017-05-07T09:04:43Z"
 		}
 	],
-	"rootPath": "github.com/ncodes/cocoon-example-01"
+	"rootPath": "github.com/ellcrys/cocoon-example-01"
 }

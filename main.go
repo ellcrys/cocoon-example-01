@@ -5,9 +5,9 @@ import (
 
 	"os"
 
+	stub "github.com/ellcrys/cocoon/core/stub"
 	"github.com/ellcrys/util"
 	"github.com/kr/pretty"
-	stub "github.com/ncodes/cocoon/core/stub"
 )
 
 var log = stub.GetLogger()
