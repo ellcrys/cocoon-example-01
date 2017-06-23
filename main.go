@@ -38,7 +38,7 @@ func (app *App) OnInvoke(header stub.Metadata, function string, params []string)
 	fmt.Println("MY_VAR", os.Getenv("MY_VAR"))
 	fmt.Println("MY_VAR2", os.Getenv("MY_VAR2"))
 	pretty.Println(header)
-	return []byte("success!"), nil
+	return []byte("success! Yay!"), nil
 }
 
 // OnStop is called when the cocoon code is being stopped
