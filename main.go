@@ -19,6 +19,7 @@ type App struct {
 // OnInit method initializes the app
 func (app *App) OnInit() error {
 	log.Info("App is initializing now")
+	log.Info("Source Dir: ", os.Getenv("SOURCE_DIR"))
 	log.Infof("Version: %s", os.Getenv("COCOON_CODE_VERSION"))
 	return nil
 }
