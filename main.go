@@ -39,7 +39,7 @@ func (app *App) OnInvoke(header stub.Metadata, function string, params []string)
 	case "about":
 		return stub.RenderString(`<view style="color: green; background-color: gray;" minHeight="102px" minWidth=300px>About Me!</view>`, nil)
 	case "others":
-		return stub.RenderString(`<view>Others like me </view>`, nil)
+		return stub.RenderString(`<view>Others like me</view>`, nil)
 	default:
 		return nil, fmt.Errorf("unexpected function '%s'", function)
 	}
