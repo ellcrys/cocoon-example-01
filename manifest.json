@@ -1,0 +1,9 @@
+{
+    "name": "Contract Example",
+    "description": "A sample contract app used as a playground for developers",
+    "functions": [
+        { "title": "Create Account", "name": "create-account" },
+        { "title": "About", "name": "about" },
+        { "title": "Others", "name": "others" }
+    ]
+}

@@ -1,2 +1,2 @@
-_vendor*
+_*vendor*
 vendor/*/
